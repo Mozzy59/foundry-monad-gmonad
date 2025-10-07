@@ -1,13 +1,21 @@
 [profile.default]
-src = "src"
-out = "out"
-libs = ["lib"]
-metadata = true
-metadata_hash = "none"  # disable ipfs
-use_literal_content = true # use source code
+# Proje dizinleri
+src = 'src'
+out = 'out'
+libs = ['lib']
 
-# Monad Configuration
-eth-rpc-url="https://testnet-rpc.monad.xyz"
-chain_id = 10143
+# Derleyici ayarları (Remix ile aynı)
+solc_version = '0.8.24'
+evm_version = 'shanghai'
 
-# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
+# Optimize ayarı (Remix'teki optimization 200)
+optimizer = true
+optimizer_runs = 200
+
+# RPC endpointleri (Monad testnet bağlantısı)
+[rpc_endpoints]
+monad_testnet = "https://testnet-rpc.monad.xyz"
+
+# Doğrulama (verify) için config
+[etherscan]
+monad_testnet = { key = "verify" }
